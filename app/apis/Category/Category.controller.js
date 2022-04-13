@@ -22,10 +22,10 @@ exports.update = async (req, res) => {
   console.log("error error");
   var body = {};
   if (req.body.name) {
-    body.name = req.body.name
+    body.Name = req.body.name
   }
   if (req.body.active) {
-    body.active = req.body.active
+    body.Active = req.body.active
 
   }
   var upto = await Category.update(body, {
