@@ -8,9 +8,8 @@ const sequelize = require('../../models').sequelize;
 
 
 exports.insert = async (req, res) => {
-
+console.log("error");
   var info = await Category.create({
-
     Name: req.body.name,
     Active: req.body.active
   }
@@ -20,6 +19,7 @@ exports.insert = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
+  console.log("error error");
   var body = {};
   if (req.body.name) {
     body.name = req.body.name

@@ -9,7 +9,7 @@ let router = express.Router();
 router.delete('/dlt' ,[validate.checkMissingID], controller.delete);
 router.get('/get', controller.CategoryAll);
 router.patch('/upto' ,[validate.checkUpdateCategoryItems],  controller.update);
-router.post('/Insert',[validate.checkMissingFields , validate.checkDuplicateCategoryId],controller.insert);
+router.post('/Insert',[validate.checkMissingFields ,validate.checkDuplicateCategoryId],controller.insert);
 
 
 

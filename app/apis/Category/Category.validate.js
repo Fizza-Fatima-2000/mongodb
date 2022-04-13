@@ -4,10 +4,11 @@ const Category = db.Category;
 const { badRequest } = require("../../util/helper");
 
 checkDuplicateCategoryId = (req, res, next) => {
+  console.log("id duplicate");
   // Username
   Category.findOne({
     where: {
-      id: req.body.id
+      Name: req.body.name
     }
   }).then(category=> {
     if (category) {
@@ -20,6 +21,7 @@ checkDuplicateCategoryId = (req, res, next) => {
 
 
 checkMissingFields =(req ,res ,next) =>{
+  console.log("missing field");
   if (!req.body.name){
     badRequest(res ,{message: "Invalid request , Category Name is required"})
     return;
@@ -35,7 +37,7 @@ checkUpdateCategoryItems =(req ,res ,next)=>{
   var xyz =Object.keys(req.body).length;
   if (req.body.id) {
 
-      if (abc<=1) {
+      if (xyz<=1) {
       badRequest(res, {message:"Invalid request, no body available to update"})
           
       }
@@ -50,7 +52,8 @@ next();
 }
 
 checkMissingID = (req,res,next) => {
-  if (!req.body.id) {
+  console.log("error");
+  if (!req.query.id) {
     badRequest(res, {message:"Invalid request, Category ID is required"})
     return;
   }
