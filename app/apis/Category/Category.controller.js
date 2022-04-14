@@ -19,13 +19,15 @@ console.log("error");
 };
 
 exports.update = async (req, res) => {
+
   console.log("error error");
   var body = {};
+try {
   if (req.body.name) {
-    body.Name = req.body.name
+    body.name = req.body.name
   }
   if (req.body.active) {
-    body.Active = req.body.active
+    body.active = req.body.active
 
   }
   var upto = await Category.update(body, {
@@ -34,6 +36,10 @@ exports.update = async (req, res) => {
     }
   }
   )
+} catch (error) {
+  console.log(error);
+}
+ 
   return success(res, { message: "Category  Updated", response: 200, status: true });
 
 };
