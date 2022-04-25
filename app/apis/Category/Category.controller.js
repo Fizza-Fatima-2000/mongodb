@@ -20,7 +20,6 @@ console.log("error");
 
 exports.update = async (req, res) => {
 
-  console.log("error error");
   var body = {};
 try {
   if (req.body.name) {
@@ -30,12 +29,15 @@ try {
     body.active = req.body.active
 
   }
-  var upto = await Category.update(body, {
+  var upto = await Category.update({Name: body.name}, {
     where: {
       id: req.body.id
     }
   }
   )
+
+  console.log(upto)
+
 } catch (error) {
   console.log(error);
 }
